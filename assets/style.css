@@ -807,3 +807,215 @@ footer {
         gap: 8px;
     }
 }
+
+/* =========================================
+   SECTION EKSTRAKURIKULER
+========================================= */
+
+.ekskul-section {
+    padding: 90px 8%;
+    background: #fffaf5;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-label {
+    color: #f47721;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    margin: 12px 0;
+    color: #252525;
+}
+
+.section-header h2 span {
+    color: #f47721;
+}
+
+.section-header p {
+    color: #777;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.ekskul-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.ekskul-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.ekskul-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.ekskul-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.ekskul-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+.ekskul-card:hover .ekskul-image img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.ekskul-content {
+    padding: 24px;
+}
+
+.ekskul-category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f47721;
+    background: #fff0e4;
+    padding: 6px 11px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.ekskul-content h3 {
+    font-size: 24px;
+    margin: 5px 0 10px;
+    color: #222;
+}
+
+.ekskul-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   DETAIL BUTTON
+========================================= */
+
+.detail-btn {
+    text-decoration: none;
+    color: #f47721;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.detail-btn:hover {
+    color: #c65300;
+}
+
+
+/* =========================================
+   EXTRA CARD
+========================================= */
+
+.hidden-extra {
+    display: none;
+}
+
+
+/* =========================================
+   LIHAT SEMUA BUTTON
+========================================= */
+
+.lihat-semua-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.lihat-semua-btn {
+    border: none;
+    background: #f47721;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.lihat-semua-btn span {
+    margin-left: 8px;
+    transition: 0.3s ease;
+}
+
+.lihat-semua-btn:hover {
+    background: #d95f0b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .ekskul-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header h2 {
+        font-size: 34px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .ekskul-section {
+        padding: 70px 5%;
+    }
+
+    .ekskul-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 30px;
+    }
+}
