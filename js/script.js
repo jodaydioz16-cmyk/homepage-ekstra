@@ -101,3 +101,60 @@ searchEkskul.addEventListener("input", function () {
     });
 
 });
+
+// =========================================
+// GRID / LIST VIEW
+// =========================================
+
+const ekskulContainer = document.querySelector(".ekskul-container");
+
+const listViewBtn = document.getElementById("listViewBtn");
+const gridViewBtn = document.getElementById("gridViewBtn");
+
+
+function setView(mode) {
+
+    if (mode === "list") {
+
+        ekskulContainer.classList.add("list-view");
+
+        listViewBtn.classList.add("active");
+        gridViewBtn.classList.remove("active");
+
+        // Tampilkan semua ekstrakurikuler
+        ekskulCards.forEach(function (card) {
+            card.style.display = "flex";
+        });
+
+    } else {
+
+        ekskulContainer.classList.remove("list-view");
+
+        listViewBtn.classList.remove("active");
+        gridViewBtn.classList.add("active");
+
+        // Kembalikan tampilan awal
+        ekskulCards.forEach(function (card) {
+
+            if (card.classList.contains("hidden-extra")) {
+                card.style.display = "none";
+            } else {
+                card.style.display = "";
+            }
+
+        });
+
+    }
+
+}
+
+
+listViewBtn.addEventListener("click", function () {
+    setView("list");
+});
+
+
+gridViewBtn.addEventListener("click", function () {
+    setView("grid");
+});
+
