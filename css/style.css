@@ -1209,3 +1209,65 @@ footer {
 .search-box input::placeholder {
     color: #999;
 }
+
+/* =========================================
+   EKSKUL VIEW TOGGLE
+========================================= */
+
+.ekskul-view-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    margin: 0 auto 35px;
+
+    border: 1px solid #999;
+    border-radius: 30px;
+
+    overflow: hidden;
+    background: white;
+}
+
+.view-btn {
+    position: relative;
+
+    width: 68px;
+    height: 40px;
+
+    border: none;
+    background: white;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    font-size: 20px;
+    color: #252525;
+
+    transition: 0.2s ease;
+}
+
+.view-btn:first-child {
+    border-right: 1px solid #999;
+}
+
+.view-btn.active {
+    background: #d9f0ff;
+}
+
+.view-btn .check {
+    display: none;
+    font-size: 18px;
+}
+
+.view-btn.active .check {
+    display: inline;
+}
+
+.view-icon {
+    line-height: 1;
+}
