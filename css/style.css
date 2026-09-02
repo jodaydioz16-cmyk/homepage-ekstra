@@ -1101,3 +1101,62 @@ footer {
     }
 
 }
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #252525;
+}
+
+
+/* =========================================
+   NAVBAR MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: relative;
+        z-index: 100;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 24px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .navbar nav a {
+        text-decoration: none;
+        color: #252525;
+        font-weight: 600;
+    }
+
+    .navbar .btn-login {
+        display: none;
+    }
+
+}
