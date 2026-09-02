@@ -20,3 +20,23 @@ lihatSemuaBtn.addEventListener("click", function () {
     }
 
 });
+
+
+// =========================================
+// MOBILE NAVBAR
+// =========================================
+
+const menuToggle = document.getElementById("menuToggle");
+const navbarNav = document.querySelector(".navbar nav");
+
+menuToggle.addEventListener("click", function () {
+
+    navbarNav.classList.toggle("active");
+
+    if (navbarNav.classList.contains("active")) {
+        menuToggle.textContent = "✕";
+    } else {
+        menuToggle.textContent = "☰";
+    }
+
+});
