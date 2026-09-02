@@ -161,3 +161,12 @@ gridViewBtn.addEventListener("click", function () {
     setView("grid");
 });
 
+// =========================================
+// DEFAULT VIEW
+// =========================================
+
+if (window.innerWidth <= 600) {
+    setView("list");
+} else {
+    setView("grid");
+}
