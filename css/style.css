@@ -1271,3 +1271,65 @@ footer {
 .view-icon {
     line-height: 1;
 }
+
+/* =========================================
+   LIST MODE
+========================================= */
+
+.ekskul-container.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ekskul-container.list-view .ekskul-card {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 82px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.ekskul-container.list-view .ekskul-image {
+    flex-shrink: 0;
+
+    width: 72px;
+    height: 72px;
+
+    margin-left: 8px;
+
+    border-radius: 10px;
+}
+
+.ekskul-container.list-view .ekskul-content {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 18px;
+    gap: 15px;
+}
+
+.ekskul-container.list-view .ekskul-category {
+    display: none;
+}
+
+.ekskul-container.list-view .ekskul-content h3 {
+    margin: 0;
+
+    font-size: 17px;
+    flex: 1;
+}
+
+.ekskul-container.list-view .ekskul-content p {
+    display: none;
+}
+
+.ekskul-container.list-view .detail-btn {
+    white-space: nowrap;
+}
