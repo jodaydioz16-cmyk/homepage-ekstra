@@ -1160,3 +1160,52 @@ footer {
     }
 
 }
+
+
+/* =========================================
+   SEARCH EKSTRAKURIKULER
+========================================= */
+
+.ekskul-search {
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+
+    padding: 14px 18px;
+
+    transition: 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #f47721;
+    box-shadow: 0 0 0 4px rgba(244, 119, 33, 0.1);
+}
+
+.search-icon {
+    font-size: 22px;
+    color: #888;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+    color: #252525;
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
