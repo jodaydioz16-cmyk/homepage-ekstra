@@ -69,32 +69,35 @@ searchEkskul.addEventListener("input", function () {
             deskripsi.includes(keyword);
 
 
-        // ==============================
         // SEARCH KOSONG
-        // ==============================
-
         if (keyword === "") {
 
-            card.style.display = "";
-            card.classList.remove("search-match");
+            if (ekskulContainer.classList.contains("list-view")) {
+
+                card.style.display = "flex";
+
+            } else {
+
+                if (card.classList.contains("hidden-extra")) {
+                    card.style.display = "none";
+                } else {
+                    card.style.display = "";
+                }
+
+            }
 
             return;
         }
 
 
-        // ==============================
-        // HASIL PENCARIAN
-        // ==============================
-
+        // SEARCH ADA
         if (cocok) {
 
-            card.style.display = "block";
-            card.classList.add("search-match");
+            card.style.display = "flex";
 
         } else {
 
             card.style.display = "none";
-            card.classList.remove("search-match");
 
         }
 
