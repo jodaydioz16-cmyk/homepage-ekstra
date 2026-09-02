@@ -278,7 +278,9 @@ nav a:hover {
 }
 
 .image-frame {
-    height: 570px;
+    height: 780px;
+
+    width: 1000px;
 
     overflow: hidden;
 
