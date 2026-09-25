@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detail Ekstrakurikuler - SMAN 1 Pacet</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f4ef;
+            color: #1d1d1d;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #eee;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .brand {
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1d1d1d;
+        }
+
+        .back-link {
+            color: #555;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #111;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 500px;
+
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            align-items: center;
+
+            gap: 70px;
+
+            padding: 80px 7%;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #ffe6ca 0,
+                    transparent 35%
+                ),
+                #f7f4ef;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 320px;
+        }
+
+        .hero-logo img {
+            width: 280px;
+            height: 280px;
+
+            object-fit: contain;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #999;
+        }
+
+        .hero-title {
+            margin-bottom: 12px;
+
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 0.95;
+        }
+
+        .hero-category {
+            margin-bottom: 22px;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            color: #777;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+            line-height: 1.8;
+
+            color: #555;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-block;
+
+            padding: 13px 20px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #1d1d1d;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #ddd;
+            background: white;
+            color: #222;
+        }
+
+        .btn-secondary:hover {
+            border-color: #aaa;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section:nth-child(even) {
+            background: #fff;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #999;
+        }
+
+        .section-title {
+            font-size: 36px;
+            line-height: 1.1;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            max-width: 850px;
+
+            font-size: 16px;
+            line-height: 1.9;
+
+            color: #555;
+        }
+
+
+        /* =========================
+           ACTIVITIES
+        ========================= */
+
+        .activity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .activity-card {
+            padding: 28px;
+
+            background: #f7f4ef;
+
+            border: 1px solid #eee;
+            border-radius: 14px;
+        }
+
+        .activity-number {
+            display: block;
+
+            margin-bottom: 18px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            color: #999;
+        }
+
+        .activity-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 19px;
+        }
+
+        .activity-card p {
+            font-size: 14px;
+            line-height: 1.7;
+
+            color: #777;
+        }
+
+
+        /* =========================
+           SCHEDULE
+        ========================= */
+
+        .schedule-wrapper {
+            overflow-x: auto;
+        }
+
+        .schedule {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+        }
+
+        .schedule th,
+        .schedule td {
+            padding: 16px;
+
+            border-bottom: 1px solid #eee;
+
+            text-align: left;
+
+            font-size: 14px;
+        }
+
+        .schedule th {
+            background: #1d1d1d;
+            color: white;
+        }
+
+        .schedule td {
+            color: #555;
+        }
+
+
+        /* =========================
+           MANAGEMENT
+        ========================= */
+
+        .management-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .person-card {
+            padding: 25px;
+
+            border: 1px solid #eee;
+            border-radius: 14px;
+
+            background: #fff;
+        }
+
+        .person-role {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color: #999;
+        }
+
+        .person-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievement-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .achievement {
+            padding: 20px;
+
+            border: 1px solid #eee;
+            border-radius: 12px;
+
+            background: #fff;
+        }
+
+        .achievement strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 15px;
+        }
+
+        .achievement span {
+            font-size: 13px;
+            color: #777;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 15px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4 / 3;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            background: #eee;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           JOIN
+        ========================= */
+
+        .join-box {
+            padding: 50px;
+
+            border-radius: 18px;
+
+            background: #1d1d1d;
+            color: white;
+
+            text-align: center;
+        }
+
+        .join-box h2 {
+            margin-bottom: 12px;
+
+            font-size: 34px;
+        }
+
+        .join-box p {
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+
+            line-height: 1.7;
+
+            color: #ccc;
+        }
+
+        .join-button {
+            display: inline-block;
+
+            padding: 14px 24px;
+
+            border-radius: 8px;
+
+            background: white;
+            color: #1d1d1d;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .contact-card {
+            padding: 25px;
+
+            background: #f7f4ef;
+
+            border-radius: 14px;
+        }
+
+        .contact-card span {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color: #999;
+        }
+
+        .contact-card strong {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 7%;
+
+            background: #1d1d1d;
+
+            color: #aaa;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                gap: 30px;
+
+                padding-top: 60px;
+            }
+
+            .hero-logo {
+                min-height: 200px;
+            }
+
+            .hero-logo img {
+                width: 190px;
+                height: 190px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .activity-grid,
+            .management-grid,
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .hero {
+                padding: 55px 5%;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .activity-grid,
+            .management-grid,
+            .contact-grid,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .join-box {
+                padding: 35px 22px;
+            }
+
+            .join-box h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+            EKSTRA SMAN 1 PACET
+        </a>
+
+        <a
+            href="index.html#ekstrakurikuler"
+            class="back-link"
+        >
+            ← Kembali
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-logo">
+
+            <img
+                id="ekstraLogo"
+                src="assets-image/SMAN1PACET-logo.png"
+                alt="Logo Ekstrakurikuler"
+            >
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                EKSTRAKURIKULER SMAN 1 PACET
+            </span>
+
+            <h1
+                class="hero-title"
+                id="ekstraName"
+            >
+                Ekstrakurikuler
+            </h1>
+
+            <p
+                class="hero-category"
+                id="ekstraCategory"
+            >
+                Kategori
+            </p>
+
+            <p
+                class="hero-description"
+                id="ekstraDescription"
+            >
+                Memuat informasi ekstrakurikuler...
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#bergabung"
+                    class="btn-primary"
+                >
+                    Bergabung
+                </a>
+
+                <a
+                    id="loginButton"
+                    href="login.html"
+                    class="btn-secondary"
+                >
+                    Masuk ke Portal
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         TENTANG
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                PROFIL
+            </span>
+
+            <h2 class="section-title">
+                Tentang Ekstra
+            </h2>
+
+        </div>
+
+        <p
+            class="about-text"
+            id="aboutText"
+        >
+            Memuat informasi...
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         KEGIATAN
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                AKTIVITAS
+            </span>
+
+            <h2 class="section-title">
+                Kegiatan Utama
+            </h2>
+
+        </div>
+
+        <div
+            class="activity-grid"
+            id="activityGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         JADWAL
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                WAKTU
+            </span>
+
+            <h2 class="section-title">
+                Jadwal Latihan
+            </h2>
+
+        </div>
+
+        <div class="schedule-wrapper">
+
+            <table class="schedule">
+
+                <thead>
+
+                    <tr>
+                        <th>Hari</th>
+                        <th>Waktu</th>
+                        <th>Kegiatan</th>
+                        <th>Tempat</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="scheduleBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PENGURUS
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                ORGANISASI
+            </span>
+
+            <h2 class="section-title">
+                Pembina & Pengurus
+            </h2>
+
+        </div>
+
+        <div
+            class="management-grid"
+            id="managementGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         PRESTASI
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                PENCAPAIAN
+            </span>
+
+            <h2 class="section-title">
+                Prestasi
+            </h2>
+
+        </div>
+
+        <div
+            class="achievement-list"
+            id="achievementList"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         GALERI
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                DOKUMENTASI
+            </span>
+
+            <h2 class="section-title">
+                Galeri Kegiatan
+            </h2>
+
+        </div>
+
+        <div
+            class="gallery"
+            id="gallery"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         BERGABUNG
+    ========================== -->
+
+    <section
+        class="section"
+        id="bergabung"
+    >
+
+        <div class="join-box">
+
+            <h2>
+                Tertarik Bergabung?
+            </h2>
+
+            <p>
+                Bergabunglah dengan ekstrakurikuler ini
+                dan kembangkan kemampuan, pengalaman,
+                serta karakter Anda bersama siswa lainnya.
+            </p>
+
+            <a
+                id="joinButton"
+                href="login.html"
+                class="join-button"
+            >
+                Masuk ke Portal
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         KONTAK
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                INFORMASI
+            </span>
+
+            <h2 class="section-title">
+                Kontak
+            </h2>
+
+        </div>
+
+        <div
+            class="contact-grid"
+            id="contactGrid"
+        ></div>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 SMAN 1 Pacet —
+        Portal Ekstrakurikuler
+
+    </footer>
+
+
+    <script>
+
+        /*
+         * ==========================================
+         * DATA EKSTRAKURIKULER
+         * ==========================================
+         *
+         * Untuk sementara saya isi contoh data
+         * Paskibra dan Basket.
+         *
+         * Ekstra lainnya bisa ditambahkan dengan
+         * struktur yang sama.
+         */
+
+        const ekstrakurikuler = {
+
+            paskibra: {
+
+                nama: "Paskibra",
+
+                kategori: "Baris-berbaris & Kepemimpinan",
+
+                logo:
+                    "assets-image/ekstra-logo/PASSMAPA-logo.png",
+
+                deskripsi:
+                    "Ekstrakurikuler yang berfokus pada pembentukan kedisiplinan, kepemimpinan, ketangguhan, tanggung jawab, serta keterampilan baris-berbaris siswa.",
+
+                tentang:
+                    "Paskibra SMAN 1 Pacet merupakan wadah bagi siswa untuk mengembangkan kedisiplinan, kepemimpinan, kerja sama, serta rasa tanggung jawab melalui berbagai kegiatan latihan dan pembinaan.",
+
+                kegiatan: [
+
+                    {
+                        nama: "Latihan PBB",
+                        deskripsi:
+                            "Pelatihan dasar dan lanjutan peraturan baris-berbaris."
+                    },
+
+                    {
+                        nama: "Latihan Fisik",
+                        deskripsi:
+                            "Meningkatkan ketahanan dan kesiapan fisik anggota."
+                    },
+
+                    {
+                        nama: "Kepemimpinan",
+                        deskripsi:
+                            "Melatih tanggung jawab, komunikasi, dan kepemimpinan."
+                    },
+
+                    {
+                        nama: "Upacara",
+                        deskripsi:
+                            "Berpartisipasi dalam pelaksanaan upacara sekolah."
+                    },
+
+                    {
+                        nama: "Perlombaan",
+                        deskripsi:
+                            "Mengikuti berbagai perlombaan PBB dan LKBB."
+                    },
+
+                    {
+                        nama: "Kegiatan Sekolah",
+                        deskripsi:
+                            "Mendukung berbagai kegiatan resmi sekolah."
+                    }
+
+                ],
+
+                jadwal: [
+
+                    {
+                        hari: "Selasa",
+                        waktu: "15.00 - 17.00",
+                        kegiatan: "Latihan Rutin",
+                        tempat: "Lapangan Sekolah"
+                    },
+
+                    {
+                        hari: "Kamis",
+                        waktu: "15.00 - 17.00",
+                        kegiatan: "Latihan Rutin",
+                        tempat: "Lapangan Sekolah"
+                    }
+
+                ],
+
+                pengurus: [
+
+                    {
+                        jabatan: "Pembina",
+                        nama: "Nama Pembina"
+                    },
+
+                    {
+                        jabatan: "Ketua",
+                        nama: "Nama Ketua"
+                    },
+
+                    {
+                        jabatan: "Wakil Ketua",
+                        nama: "Nama Wakil Ketua"
+                    }
+
+                ],
+
+                prestasi: [
+
+                    {
+                        nama: "Juara 1 LKBB",
+                        detail: "Tingkat Kabupaten — 2025"
+                    },
+
+                    {
+                        nama: "Juara 2 PBB",
+                        detail: "Tingkat Kabupaten — 2025"
+                    }
+
+                ],
+
+                galeri: [
+
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png"
+
+                ],
+
+                kontak: [
+
+                    {
+                        jenis: "Instagram",
+                        isi: "@paskibra_sman1pacet"
+                    },
+
+                    {
+                        jenis: "Sekretariat",
+                        isi: "SMAN 1 Pacet"
+                    },
+
+                    {
+                        jenis: "Pembina",
+                        isi: "Nama Pembina"
+                    }
+
+                ]
+
+            },
+
+
+            basket: {
+
+                nama: "Basket",
+
+                kategori: "Olahraga",
+
+                logo:
+                    "assets-image/plisiholder.png",
+
+                deskripsi:
+                    "Ekstrakurikuler olahraga yang mengembangkan kemampuan bermain basket, kerja sama tim, kedisiplinan, dan sportivitas.",
+
+                tentang:
+                    "Basket menjadi wadah bagi siswa yang memiliki minat dalam olahraga bola basket untuk mengembangkan kemampuan teknik maupun kerja sama tim melalui latihan rutin dan pertandingan.",
+
+                kegiatan: [
+
+                    {
+                        nama: "Basic Training",
+                        deskripsi:
+                            "Pembelajaran teknik dasar permainan basket."
+                    },
+
+                    {
+                        nama: "Shooting",
+                        deskripsi:
+                            "Latihan akurasi dan teknik shooting."
+                    },
+
+                    {
+                        nama: "Dribbling",
+                        deskripsi:
+                            "Latihan kontrol bola dan kemampuan dribbling."
+                    },
+
+                    {
+                        nama: "Team Play",
+                        deskripsi:
+                            "Latihan strategi dan kerja sama tim."
+                    },
+
+                    {
+                        nama: "Sparring",
+                        deskripsi:
+                            "Pertandingan latihan dengan tim lain."
+                    },
+
+                    {
+                        nama: "Kompetisi",
+                        deskripsi:
+                            "Mengikuti berbagai kompetisi bola basket."
+                    }
+
+                ],
+
+                jadwal: [
+
+                    {
+                        hari: "Senin",
+                        waktu: "15.00 - 17.00",
+                        kegiatan: "Latihan",
+                        tempat: "Lapangan Basket"
+                    },
+
+                    {
+                        hari: "Jumat",
+                        waktu: "15.00 - 17.00",
+                        kegiatan: "Latihan",
+                        tempat: "Lapangan Basket"
+                    }
+
+                ],
+
+                pengurus: [
+
+                    {
+                        jabatan: "Pembina",
+                        nama: "Nama Pembina"
+                    },
+
+                    {
+                        jabatan: "Ketua",
+                        nama: "Nama Ketua"
+                    },
+
+                    {
+                        jabatan: "Wakil Ketua",
+                        nama: "Nama Wakil Ketua"
+                    }
+
+                ],
+
+                prestasi: [
+
+                    {
+                        nama: "Prestasi Basket",
+                        detail: "Tambahkan data prestasi di sini"
+                    }
+
+                ],
+
+                galeri: [
+
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png",
+                    "assets-image/plisiholder.png"
+
+                ],
+
+                kontak: [
+
+                    {
+                        jenis: "Instagram",
+                        isi: "@basket_sman1pacet"
+                    },
+
+                    {
+                        jenis: "Sekretariat",
+                        isi: "SMAN 1 Pacet"
+                    },
+
+                    {
+                        jenis: "Pembina",
+                        isi: "Nama Pembina"
+                    }
+
+                ]
+
+            }
+
+        };
+
+
+        /*
+         * ==========================================
+         * MENGAMBIL EKSTRA DARI URL
+         * ==========================================
+         */
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const ekstraId =
+            params.get("ekstra");
+
+
+        /*
+         * ==========================================
+         * CEK DATA
+         * ==========================================
+         */
+
+        const ekstra =
+            ekstrakurikuler[ekstraId];
+
+
+        if (!ekstra) {
+
+            document.title =
+                "Ekstrakurikuler Tidak Ditemukan";
+
+            document.getElementById("ekstraName")
+                .textContent =
+                "Ekstrakurikuler Tidak Ditemukan";
+
+            document.getElementById("ekstraCategory")
+                .textContent =
+                "";
+
+            document.getElementById("ekstraDescription")
+                .textContent =
+                "Data ekstrakurikuler yang Anda cari belum tersedia.";
+
+        } else {
+
+
+            /*
+             * ==========================================
+             * HERO
+             * ==========================================
+             */
+
+            document.title =
+                `${ekstra.nama} - Ekstrakurikuler SMAN 1 Pacet`;
+
+            document.getElementById("ekstraLogo")
+                .src =
+                ekstra.logo;
+
+            document.getElementById("ekstraLogo")
+                .alt =
+                `Logo ${ekstra.nama}`;
+
+            document.getElementById("ekstraName")
+                .textContent =
+                ekstra.nama;
+
+            document.getElementById("ekstraCategory")
+                .textContent =
+                ekstra.kategori;
+
+            document.getElementById("ekstraDescription")
+                .textContent =
+                ekstra.deskripsi;
+
+            document.getElementById("aboutText")
+                .textContent =
+                ekstra.tentang;
+
+
+            /*
+             * ==========================================
+             * LOGIN BUTTON
+             * ==========================================
+             */
+
+            const loginUrl =
+                `login.html?ekstra=${encodeURIComponent(ekstraId)}`;
+
+            document.getElementById("loginButton")
+                .href =
+                loginUrl;
+
+            document.getElementById("joinButton")
+                .href =
+                loginUrl;
+
+
+            /*
+             * ==========================================
+             * KEGIATAN
+             * ==========================================
+             */
+
+            const activityGrid =
+                document.getElementById("activityGrid");
+
+            ekstra.kegiatan.forEach(
+                (item, index) => {
+
+                    const card =
+                        document.createElement("article");
+
+                    card.className =
+                        "activity-card";
+
+                    card.innerHTML = `
+
+                        <span class="activity-number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <h3>
+                            ${item.nama}
+                        </h3>
+
+                        <p>
+                            ${item.deskripsi}
+                        </p>
+
+                    `;
+
+                    activityGrid.appendChild(card);
+
+                }
+            );
+
+
+            /*
+             * ==========================================
+             * JADWAL
+             * ==========================================
+             */
+
+            const scheduleBody =
+                document.getElementById("scheduleBody");
+
+            ekstra.jadwal.forEach(
+                item => {
+
+                    const row =
+                        document.createElement("tr");
+
+                    row.innerHTML = `
+
+                        <td>${item.hari}</td>
+
+                        <td>${item.waktu}</td>
+
+                        <td>${item.kegiatan}</td>
+
+                        <td>${item.tempat}</td>
+
+                    `;
+
+                    scheduleBody.appendChild(row);
+
+                }
+            );
+
+
+            /*
+             * ==========================================
+             * PENGURUS
+             * ==========================================
+             */
+
+            const managementGrid =
+                document.getElementById(
+                    "managementGrid"
+                );
+
+            ekstra.pengurus.forEach(
+                item => {
+
+                    const card =
+                        document.createElement("article");
+
+                    card.className =
+                        "person-card";
+
+                    card.innerHTML = `
+
+                        <span class="person-role">
+                            ${item.jabatan}
+                        </span>
+
+                        <div class="person-name">
+                            ${item.nama}
+                        </div>
+
+                    `;
+
+                    managementGrid.appendChild(card);
+
+                }
+            );
+
+
+            /*
+             * ==========================================
+             * PRESTASI
+             * ==========================================
+             */
+
+            const achievementList =
+                document.getElementById(
+                    "achievementList"
+                );
+
+            ekstra.prestasi.forEach(
+                item => {
+
+                    const achievement =
+                        document.createElement("div");
+
+                    achievement.className =
+                        "achievement";
+
+                    achievement.innerHTML = `
+
+                        <strong>
+                            🏆 ${item.nama}
+                        </strong>
+
+                        <span>
+                            ${item.detail}
+                        </span>
+
+                    `;
+
+                    achievementList.appendChild(
+                        achievement
+                    );
+
+                }
+            );
+
+
+            /*
+             * ==========================================
+             * GALERI
+             * ==========================================
+             */
+
+            const gallery =
+                document.getElementById("gallery");
+
+            ekstra.galeri.forEach(
+                (image, index) => {
+
+                    const item =
+                        document.createElement("div");
+
+                    item.className =
+                        "gallery-item";
+
+                    item.innerHTML = `
+
+                        <img
+                            src="${image}"
+                            alt="Dokumentasi ${ekstra.nama} ${index + 1}"
+                        >
+
+                    `;
+
+                    gallery.appendChild(item);
+
+                }
+            );
+
+
+            /*
+             * ==========================================
+             * KONTAK
+             * ==========================================
+             */
+
+            const contactGrid =
+                document.getElementById(
+                    "contactGrid"
+                );
+
+            ekstra.kontak.forEach(
+                item => {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "contact-card";
+
+                    card.innerHTML = `
+
+                        <span>
+                            ${item.jenis}
+                        </span>
+
+                        <strong>
+                            ${item.isi}
+                        </strong>
+
+                    `;
+
+                    contactGrid.appendChild(card);
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
