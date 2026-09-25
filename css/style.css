@@ -1,0 +1,1430 @@
+/* ===============================================
+   RESET
+================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #252525;
+    background: #fffaf5;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root {
+    --orange: #ef6c00;
+    --orange-dark: #c84f00;
+    --orange-light: #fff0df;
+
+    --black: #1f1f1f;
+    --gray: #686868;
+    --light: #fffaf5;
+    --white: #ffffff;
+
+    --border: #eadfd5;
+}
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(255, 250, 245, 0.96);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 46px;
+    height: 46px;
+
+    overflow: hidden;
+    border-radius: 50%;
+
+    background: var(--orange-light);
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-text h2 {
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--orange);
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+nav {
+    display: flex;
+    gap: 34px;
+}
+
+nav a {
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+.btn-login {
+    padding: 11px 24px;
+
+    color: white;
+    background: var(--orange);
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    transition: 0.25s;
+}
+
+.btn-login:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   GENERAL
+================================================== */
+
+.section {
+    padding: 110px 7%;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.section-heading > span {
+    color: var(--orange);
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.15;
+}
+
+.section-heading h2 strong {
+    color: var(--orange);
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+    min-height: calc(100vh - 82px);
+
+    padding: 90px 7%;
+
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 80px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #ffe6ca 0,
+            transparent 32%
+        );
+}
+
+.hero-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero-content > p {
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: var(--gray);
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 38px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 14px 24px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.25s;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--orange);
+}
+
+.btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    color: var(--black);
+    border: 1px solid var(--border);
+    background: white;
+}
+
+.btn-secondary:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+.hero-image {
+    position: relative;
+}
+
+.image-frame {
+    width: 100%;
+    height: 780px;
+
+    overflow: hidden;
+
+    border-radius: 4px;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+.hero-card {
+    position: absolute;
+
+    left: -35px;
+    bottom: 35px;
+
+    padding: 22px 28px;
+
+    background: white;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+    border-left: 4px solid var(--orange);
+}
+
+.hero-card strong {
+    display: block;
+
+    color: var(--orange);
+
+    font-size: 34px;
+    line-height: 1;
+}
+
+.hero-card span {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   ABOUT
+================================================== */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+
+    color: var(--gray);
+    font-size: 16px;
+}
+
+.about-features {
+    border-top: 1px solid var(--border);
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.feature-number {
+    color: var(--orange);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.feature h3 {
+    margin-bottom: 5px;
+    font-size: 19px;
+}
+
+.feature p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   EXTRA
+================================================== */
+
+.extras {
+    background: var(--light);
+}
+
+.extra-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.extra-card {
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    transition: 0.3s;
+}
+
+.extra-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.extra-image {
+    height: 210px;
+    overflow: hidden;
+}
+
+.extra-image img {
+    height: 100%;
+    object-fit: cover;
+
+    transition: 0.4s;
+}
+
+.extra-card:hover .extra-image img {
+    transform: scale(1.05);
+}
+
+.extra-content {
+    padding: 25px;
+}
+
+.extra-content > span {
+    color: var(--orange);
+
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.extra-content h3 {
+    margin: 8px 0;
+
+    font-size: 25px;
+}
+
+.extra-content p {
+    margin-bottom: 20px;
+
+    color: var(--gray);
+    font-size: 13px;
+}
+
+.read-more {
+    color: var(--orange);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   NEWS
+================================================== */
+
+.news {
+    background: white;
+}
+
+.news-heading {
+    max-width: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.view-all {
+    color: var(--orange);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
+}
+
+.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border: 1px solid var(--border);
+}
+
+.featured > img {
+    height: 100%;
+    min-height: 380px;
+
+    object-fit: cover;
+}
+
+.news-info {
+    padding: 35px;
+}
+
+.news-category,
+.small-news span {
+    color: var(--orange);
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.news-info h3 {
+    margin: 15px 0;
+
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.news-info p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.news-date {
+    display: block;
+
+    margin-top: 30px;
+
+    color: #999;
+    font-size: 11px;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid var(--border);
+}
+
+.small-news {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.small-news-image {
+    width: 130px;
+    height: 100px;
+
+    overflow: hidden;
+}
+
+.small-news-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.small-news h3 {
+    margin: 6px 0;
+
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.small-news small {
+    color: #999;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   CTA
+================================================== */
+
+.cta {
+    margin: 0 7% 100px;
+    padding: 55px 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--orange);
+
+    color: white;
+}
+
+.cta span {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.cta h2 {
+    max-width: 600px;
+
+    margin-top: 8px;
+
+    font-size: 35px;
+    line-height: 1.2;
+}
+
+.cta-button {
+    padding: 15px 25px;
+
+    background: white;
+    color: var(--orange);
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+    padding: 65px 7% 25px;
+
+    background: #202020;
+    color: white;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 50px;
+
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.footer-brand h2 {
+    color: var(--orange);
+
+    letter-spacing: 3px;
+}
+
+.footer-brand p {
+    margin-top: 12px;
+
+    color: #aaa;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-links h4 {
+    margin-bottom: 15px;
+
+    color: var(--orange);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.footer-links a {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 20px;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero-image {
+        max-width: 650px;
+    }
+
+    .extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .section {
+        padding: 75px 5%;
+    }
+
+    .hero {
+        padding: 65px 5%;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-card {
+        left: 15px;
+    }
+
+    .extra-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        grid-template-columns: 1fr;
+    }
+
+    .featured > img {
+        min-height: 250px;
+    }
+
+    .small-news {
+        grid-template-columns: 100px 1fr;
+    }
+
+    .small-news-image {
+        width: 100px;
+        height: 80px;
+    }
+
+    .cta {
+        margin: 0 5% 70px;
+        padding: 40px 30px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .cta h2 {
+        font-size: 27px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        gap: 60px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+
+/* =========================================
+   SECTION EKSTRAKURIKULER
+========================================= */
+
+.ekskul-section {
+    padding: 90px 8%;
+    background: #fffaf5;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-label {
+    color: #f47721;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    margin: 12px 0;
+    color: #252525;
+}
+
+.section-header h2 span {
+    color: #f47721;
+}
+
+.section-header p {
+    color: #777;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.ekskul-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.ekskul-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.ekskul-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.ekskul-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.ekskul-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+.ekskul-card:hover .ekskul-image img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.ekskul-content {
+    padding: 24px;
+}
+
+.ekskul-category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f47721;
+    background: #fff0e4;
+    padding: 6px 11px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.ekskul-content h3 {
+    font-size: 24px;
+    margin: 5px 0 10px;
+    color: #222;
+}
+
+.ekskul-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   DETAIL BUTTON
+========================================= */
+
+.detail-btn {
+    text-decoration: none;
+    color: #f47721;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.detail-btn:hover {
+    color: #c65300;
+}
+
+
+/* =========================================
+   EXTRA CARD
+========================================= */
+
+.hidden-extra {
+    display: none;
+}
+
+
+/* =========================================
+   LIHAT SEMUA BUTTON
+========================================= */
+
+.lihat-semua-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.lihat-semua-btn {
+    border: none;
+    background: #f47721;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.lihat-semua-btn span {
+    margin-left: 8px;
+    transition: 0.3s ease;
+}
+
+.lihat-semua-btn:hover {
+    background: #d95f0b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .ekskul-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header h2 {
+        font-size: 34px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .ekskul-section {
+        padding: 70px 5%;
+    }
+
+    .ekskul-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================
+   MOBILE HERO
+   FIXED RESPONSIVE VERSION
+========================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        position: relative;
+
+        /*
+         * Jangan pakai 100vh.
+         * Tinggi hero mengikuti konten sehingga
+         * tidak menyebabkan gambar terdorong/terpotong
+         * secara tidak terkontrol pada device kecil.
+         */
+        min-height: 620px;
+        height: auto;
+
+        padding: 0;
+
+        display: flex;
+        align-items: flex-end;
+
+        overflow: hidden;
+    }
+
+    .hero-image {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 0;
+    }
+
+    .hero-image .image-frame {
+        width: 100%;
+        height: 100%;
+
+        min-height: 620px;
+
+        border-radius: 0;
+    }
+
+    .hero-image .image-frame img {
+        width: 100%;
+        height: 100%;
+
+        /*
+         * cover mencegah gambar gepeng/stretch.
+         */
+        object-fit: cover;
+
+        /*
+         * Sedikit mengutamakan bagian atas gambar.
+         * Bisa diubah ke 50% jika posisi gambar asli
+         * sudah pas.
+         */
+        object-position: center 30%;
+    }
+
+    .hero-content {
+        position: relative;
+
+        z-index: 2;
+
+        width: 100%;
+
+        padding: 40px 24px 50px;
+
+        color: white;
+    }
+
+    .hero-content h1 {
+        color: white;
+
+        font-size: 42px;
+        line-height: 1.05;
+    }
+
+    .hero-content h1 span {
+        color: white;
+    }
+
+    .hero-content p {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-label {
+        color: white;
+    }
+
+    .hero-card {
+        display: none;
+    }
+
+    /*
+     * Overlay hanya untuk membantu keterbacaan
+     * teks di atas gambar.
+     */
+    .hero::after {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 1;
+
+        pointer-events: none;
+
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.10)
+        );
+    }
+}
+
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #252525;
+}
+
+
+/* =========================================
+   NAVBAR MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: relative;
+        z-index: 100;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navbar nav {
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        padding: 20px 24px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar nav.active {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .navbar nav a {
+        text-decoration: none;
+        color: #252525;
+        font-weight: 600;
+    }
+
+    .navbar .btn-login {
+        display: none;
+    }
+}
+
+
+/* =========================================
+   SEARCH EKSTRAKURIKULER
+========================================= */
+
+.ekskul-search {
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+
+    padding: 14px 18px;
+
+    transition: 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #f47721;
+    box-shadow: 0 0 0 4px rgba(244, 119, 33, 0.1);
+}
+
+.search-icon {
+    font-size: 22px;
+    color: #888;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+    color: #252525;
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+
+/* =========================================
+   EKSKUL VIEW TOGGLE
+========================================= */
+
+.ekskul-view-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    margin: 0 auto 35px;
+
+    border: 1px solid #999;
+    border-radius: 30px;
+
+    overflow: hidden;
+    background: white;
+}
+
+.view-btn {
+    position: relative;
+
+    width: 68px;
+    height: 40px;
+
+    border: none;
+    background: white;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    font-size: 20px;
+    color: #252525;
+
+    transition: 0.2s ease;
+}
+
+.view-btn:first-child {
+    border-right: 1px solid #999;
+}
+
+.view-btn.active {
+    background: #d9f0ff;
+}
+
+.view-btn .check {
+    display: none;
+    font-size: 18px;
+}
+
+.view-btn.active .check {
+    display: inline;
+}
+
+.view-icon {
+    line-height: 1;
+}
+
+
+/* =========================================
+   LIST MODE
+========================================= */
+
+.ekskul-container.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ekskul-container.list-view .ekskul-card {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 82px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.ekskul-container.list-view .ekskul-image {
+    flex-shrink: 0;
+
+    width: 72px;
+    height: 72px;
+
+    margin-left: 8px;
+
+    border-radius: 10px;
+}
+
+.ekskul-container.list-view .ekskul-content {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 18px;
+    gap: 15px;
+}
+
+.ekskul-container.list-view .ekskul-category {
+    display: none;
+}
+
+.ekskul-container.list-view .ekskul-content h3 {
+    margin: 0;
+
+    font-size: 17px;
+    flex: 1;
+}
+
+.ekskul-container.list-view .ekskul-content p {
+    display: none;
+}
+
+.ekskul-container.list-view .detail-btn {
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   EXTRA SMALL DEVICES
+   Contoh: 320px - 375px
+========================================= */
+
+@media (max-width: 375px) {
+
+    .hero {
+        min-height: 580px;
+    }
+
+    .hero-image .image-frame {
+        min-height: 580px;
+    }
+
+    .hero-content {
+        padding: 32px 20px 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-image .image-frame img {
+        object-position: center 25%;
+    }
+}
