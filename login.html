@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - EKSTRA SMAN 1 PACET</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    #ffe6ca 0,
+                    transparent 35%
+                ),
+                #f7f4ef;
+
+            color: #1d1d1d;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 430px;
+        }
+
+        .login-card {
+            width: 100%;
+
+            padding: 42px 36px;
+
+            background: #fff;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.10);
+
+            text-align: center;
+        }
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .ekstra-logo {
+            width: 115px;
+            height: 115px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ekstra-logo img {
+            display: block;
+
+            max-width: 100%;
+            max-height: 100%;
+
+            object-fit: contain;
+        }
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .login-label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #999;
+        }
+
+        .login-title {
+            margin-bottom: 8px;
+
+            font-size: 30px;
+            line-height: 1.1;
+        }
+
+        .login-description {
+            margin-bottom: 28px;
+
+            font-size: 14px;
+            line-height: 1.6;
+
+            color: #777;
+        }
+
+        /* =========================
+           PILIH EKSTRA
+        ========================= */
+
+        .form-group {
+            margin-bottom: 18px;
+
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: "⌄";
+
+            position: absolute;
+
+            right: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            pointer-events: none;
+
+            color: #777;
+
+            font-size: 18px;
+        }
+
+        select {
+            width: 100%;
+
+            padding: 14px 42px 14px 15px;
+
+            border: 1px solid #ddd;
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #fff;
+
+            color: #222;
+
+            font-size: 14px;
+
+            appearance: none;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        select:focus {
+            border-color: #222;
+
+            box-shadow:
+                0 0 0 3px rgba(0, 0, 0, 0.06);
+        }
+
+        /* =========================
+           INPUT
+        ========================= */
+
+        input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #ddd;
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #222;
+
+            box-shadow:
+                0 0 0 3px rgba(0, 0, 0, 0.06);
+        }
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-button {
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 9px;
+
+            background: #1d1d1d;
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #333;
+
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           BACK
+        ========================= */
+
+        .back-link {
+            display: inline-block;
+
+            margin-top: 24px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #111;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 16px;
+            }
+
+            .login-card {
+                padding: 32px 24px;
+            }
+
+            .ekstra-logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .login-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-wrapper">
+
+        <section class="login-card">
+
+            <!-- LOGO -->
+            <div class="ekstra-logo">
+
+                <img
+                    id="ekstraLogo"
+                    src="assets-image/SMAN1PACET-logo.png"
+                    alt="Logo Ekstrakurikuler"
+                >
+
+            </div>
+
+
+            <!-- HEADER -->
+
+            <span class="login-label">
+                PORTAL EKSTRAKURIKULER
+            </span>
+
+            <h1
+                class="login-title"
+                id="ekstraName"
+            >
+                Login
+            </h1>
+
+            <p class="login-description">
+                Pilih ekstrakurikuler yang ingin Anda masuki,
+                kemudian masukkan akun Anda.
+            </p>
+
+
+            <!-- FORM -->
+
+            <form
+                class="login-form"
+                id="loginForm"
+            >
+
+                <!-- PILIH EKSTRA -->
+
+                <div class="form-group">
+
+                    <label for="ekstraSelect">
+                        Pilih Ekstrakurikuler
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <select
+                            id="ekstraSelect"
+                            name="ekstra"
+                            required
+                        >
+
+                            <option value="">
+                                Pilih ekstrakurikuler
+                            </option>
+
+                            <option value="paskibra">
+                                Paskibra
+                            </option>
+
+                            <option value="basket">
+                                Basket
+                            </option>
+
+                            <option value="spartan">
+                                Spartan
+                            </option>
+
+                            <option value="remas">
+                                REMAS
+                            </option>
+
+                            <option value="pikr">
+                                PIKR
+                            </option>
+
+                            <option value="ipsi">
+                                IPSI
+                            </option>
+
+                            <option value="futsal">
+                                Futsal
+                            </option>
+
+                            <option value="karawitan">
+                                Karawitan
+                            </option>
+
+                            <option value="gateball">
+                                Gateball
+                            </option>
+
+                            <option value="musik">
+                                Musik
+                            </option>
+
+                            <option value="padus">
+                                Padus
+                            </option>
+
+                            <option value="ecc">
+                                ECC
+                            </option>
+
+                            <option value="tari">
+                                Tari
+                            </option>
+
+                            <option value="dance">
+                                Dance
+                            </option>
+
+                            <option value="nihongo">
+                                Nihongo
+                            </option>
+
+                            <option value="esport">
+                                Esport
+                            </option>
+
+                            <option value="kwu">
+                                KWU
+                            </option>
+
+                            <option value="kopsis">
+                                KOPSIS
+                            </option>
+
+                            <option value="banjari">
+                                Banjari
+                            </option>
+
+                            <option value="tahfidz">
+                                Tahfidz
+                            </option>
+
+                            <option value="mtq">
+                                MTQ
+                            </option>
+
+                            <option value="volly">
+                                Volly
+                            </option>
+
+                            <option value="spekta">
+                                Spekta
+                            </option>
+
+                            <option value="multimedia">
+                                Multimedia
+                            </option>
+
+                            <option value="teater">
+                                Teater
+                            </option>
+
+                            <option value="pmr">
+                                PMR
+                            </option>
+
+                            <option value="ambalan">
+                                Ambalan
+                            </option>
+
+                            <option value="pramuka">
+                                Pramuka (Wajib)
+                            </option>
+
+                            <option value="kti">
+                                KTI
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- USERNAME -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username / Email
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Masukkan username atau email"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Masukkan password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <a
+                href="index.html#ekstrakurikuler"
+                class="back-link"
+            >
+                ← Kembali ke Ekstrakurikuler
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /*
+         * ==========================================
+         * DATA EKSTRAKURIKULER
+         * ==========================================
+         */
+
+        const ekstrakurikuler = {
+
+            paskibra: {
+                name: "Paskibra",
+                logo: "assets-image/ekstra-logo/PASSMAPA-logo.png"
+            },
+
+            basket: {
+                name: "Basket",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            spartan: {
+                name: "Spartan",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            remas: {
+                name: "REMAS",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            pikr: {
+                name: "PIKR",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            ipsi: {
+                name: "IPSI",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            futsal: {
+                name: "Futsal",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            karawitan: {
+                name: "Karawitan",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            gateball: {
+                name: "Gateball",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            musik: {
+                name: "Musik",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            padus: {
+                name: "Padus",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            ecc: {
+                name: "ECC",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            tari: {
+                name: "Tari",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            dance: {
+                name: "Dance",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            nihongo: {
+                name: "Nihongo",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            esport: {
+                name: "Esport",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            kwu: {
+                name: "KWU",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            kopsis: {
+                name: "KOPSIS",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            banjari: {
+                name: "Banjari",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            tahfidz: {
+                name: "Tahfidz",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            mtq: {
+                name: "MTQ",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            volly: {
+                name: "Volly",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            spekta: {
+                name: "Spekta",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            multimedia: {
+                name: "Multimedia",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            teater: {
+                name: "Teater",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            pmr: {
+                name: "PMR",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            ambalan: {
+                name: "Ambalan",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            pramuka: {
+                name: "Pramuka (Wajib)",
+                logo: "assets-image/plisiholder.png"
+            },
+
+            kti: {
+                name: "KTI",
+                logo: "assets-image/plisiholder.png"
+            }
+
+        };
+
+
+        /*
+         * ==========================================
+         * ELEMENT
+         * ==========================================
+         */
+
+        const ekstraSelect =
+            document.getElementById("ekstraSelect");
+
+        const ekstraLogo =
+            document.getElementById("ekstraLogo");
+
+        const ekstraName =
+            document.getElementById("ekstraName");
+
+
+        /*
+         * ==========================================
+         * SAAT EKSTRA DIPILIH
+         * ==========================================
+         */
+
+        ekstraSelect.addEventListener(
+            "change",
+            function () {
+
+                const selected =
+                    ekstrakurikuler[this.value];
+
+                if (!selected) {
+
+                    ekstraName.textContent =
+                        "Login";
+
+                    ekstraLogo.src =
+                        "assets-image/SMAN1PACET-logo.png";
+
+                    ekstraLogo.alt =
+                        "Logo SMAN 1 Pacet";
+
+                    return;
+                }
+
+
+                ekstraName.textContent =
+                    selected.name;
+
+                ekstraLogo.src =
+                    selected.logo;
+
+                ekstraLogo.alt =
+                    `Logo ${selected.name}`;
+
+            }
+        );
+
+
+        /*
+         * ==========================================
+         * LOGIN SEMENTARA
+         * ==========================================
+         */
+
+        document
+            .getElementById("loginForm")
+            .addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+                    const selected =
+                        ekstrakurikuler[
+                            ekstraSelect.value
+                        ];
+
+                    if (!selected) {
+                        return;
+                    }
+
+                    alert(
+                        `Login ${selected.name} belum terhubung ke sistem.`
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
