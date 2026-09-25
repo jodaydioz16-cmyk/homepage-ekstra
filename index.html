@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Ekstrakurikuler SMAN 1 Pacet
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background: #f7f4ef;
+
+            color: #1d1d1d;
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.96
+            );
+
+            border-bottom: 1px solid #eee;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .brand {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            color: #1d1d1d;
+
+            text-decoration: none;
+        }
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+
+            color: #555;
+
+            font-size: 14px;
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+
+            color: #111;
+        }
+
+        .nav-login {
+
+            padding: 10px 16px;
+
+            border-radius: 8px;
+
+            background: #1d1d1d;
+
+            color: #fff !important;
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+
+            min-height: calc(100vh - 75px);
+
+            padding: 80px 7%;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #ffe6ca 0,
+                    transparent 32%
+                );
+        }
+
+        .hero-label {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #999;
+        }
+
+        .hero-content h1 {
+
+            margin-bottom: 22px;
+
+            font-size:
+                clamp(48px, 6vw, 82px);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+        }
+
+        .hero-content h1 span {
+
+            color: #777;
+        }
+
+        .hero-content > p {
+
+            max-width: 570px;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #666;
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+
+            display: inline-block;
+
+            padding: 13px 20px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .btn-primary {
+
+            background: #1d1d1d;
+
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+
+            background: #333;
+
+            transform:
+                translateY(-2px);
+        }
+
+        .btn-secondary {
+
+            border: 1px solid #ddd;
+
+            background: #fff;
+
+            color: #222;
+        }
+
+        .btn-secondary:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ========================================
+           HERO IMAGE
+        ======================================== */
+
+        .hero-image {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+        .image-frame {
+
+            width: 100%;
+
+            height: 600px;
+
+            overflow: hidden;
+
+            border-radius: 4px;
+        }
+
+        .image-frame img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+        }
+
+        .hero-card {
+
+            position: absolute;
+
+            right: -20px;
+
+            bottom: 30px;
+
+            padding: 20px 24px;
+
+            background: #fff;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-card strong {
+
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 28px;
+        }
+
+        .hero-card span {
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+
+        /* ========================================
+           SECTION
+        ======================================== */
+
+        .section {
+
+            padding: 90px 7%;
+        }
+
+        .section-header {
+
+            display: flex;
+
+            align-items: end;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #999;
+        }
+
+        .section-title {
+
+            font-size: 40px;
+
+            line-height: 1.1;
+        }
+
+        .section-description {
+
+            max-width: 550px;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #777;
+        }
+
+
+        /* ========================================
+           EKSTRA GRID
+        ======================================== */
+
+        .ekstra-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+        .ekstra-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 28px;
+
+            min-height: 330px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background: #fff;
+
+            border: 1px solid #eee;
+
+            border-radius: 16px;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .ekstra-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .ekstra-logo {
+
+            width: 90px;
+
+            height: 90px;
+
+            margin-bottom: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .ekstra-logo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+        }
+
+        .ekstra-category {
+
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #999;
+        }
+
+        .ekstra-card h3 {
+
+            margin-bottom: 10px;
+
+            font-size: 22px;
+        }
+
+        .ekstra-card p {
+
+            margin-bottom: 22px;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #777;
+        }
+
+        .detail-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: fit-content;
+
+            margin-top: auto;
+
+            padding: 11px 17px;
+
+            border-radius: 8px;
+
+            background: #1d1d1d;
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .detail-button:hover {
+
+            background: #333;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+
+            padding: 40px 7%;
+
+            background: #1d1d1d;
+
+            color: #aaa;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .hero-image {
+
+                max-width: 700px;
+
+                margin: 0 auto;
+
+            }
+
+            .ekstra-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                padding:
+                    16px 5%;
+            }
+
+            .nav-links {
+
+                display: none;
+            }
+
+            .hero {
+
+                min-height: auto;
+
+                padding:
+                    60px 5%;
+
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+
+                font-size: 48px;
+
+                letter-spacing: -2px;
+            }
+
+            .image-frame {
+
+                height: 480px;
+            }
+
+            .hero-card {
+
+                right: 15px;
+
+                bottom: 20px;
+            }
+
+            .section {
+
+                padding:
+                    65px 5%;
+            }
+
+            .section-header {
+
+                display: block;
+            }
+
+            .section-title {
+
+                font-size: 32px;
+
+                margin-bottom: 12px;
+            }
+
+            .ekstra-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .ekstra-card {
+
+                min-height: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVBAR
+    ========================================= -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+            EKSTRA SMAN 1 PACET
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#beranda">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="#ekstrakurikuler">
+                    Ekstrakurikuler
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="login.html"
+                    class="nav-login"
+                >
+                    Login
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ========================================
+         HERO
+    ========================================= -->
+
+    <section
+        class="hero"
+        id="beranda"
+    >
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                PORTAL EKSTRAKURIKULER
+            </span>
+
+            <h1>
+
+                Mewujudkan
+                <br>
+
+                <span>
+                    Generasi yang
+                </span>
+
+                <br>
+
+                Bersinar.
+
+            </h1>
+
+            <p>
+                Platform informasi dan pengelolaan
+                kegiatan ekstrakurikuler SMAN 1 Pacet.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#ekstrakurikuler"
+                    class="btn-primary"
+                >
+                    Jelajahi Ekstra
+                </a>
+
+                <a
+                    href="login.html"
+                    class="btn-secondary"
+                >
+                    Masuk ke Akun →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="image-frame">
+
+                <img
+                    src="assets-image/Hiro-Example.jpg"
+                    alt="Kegiatan Ekstrakurikuler"
+                >
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <strong>
+                    29+
+                </strong>
+
+                <span>
+                    Ekstrakurikuler
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         EKSTRAKURIKULER
+    ========================================= -->
+
+    <section
+        class="section"
+        id="ekstrakurikuler"
+    >
+
+        <div class="section-header">
+
+            <div>
+
+                <span class="section-label">
+                    PILIH EKSTRA
+                </span>
+
+                <h2 class="section-title">
+                    Ekstrakurikuler
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+
+                Temukan ekstrakurikuler yang sesuai
+                dengan minat, bakat, dan tujuan Anda.
+
+            </p>
+
+        </div>
+
+
+        <div class="ekstra-grid">
+
+
+            <!-- =================================
+                 PASKIBRA
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="paskibra"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/ekstra-logo/PASSMAPA-logo.png"
+                        alt="Logo Paskibra"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Baris-berbaris
+                </span>
+
+                <h3>
+                    Paskibra
+                </h3>
+
+                <p>
+                    Membentuk kedisiplinan,
+                    kepemimpinan, dan tanggung jawab.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 BASKET
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="basket"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Basket"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Basket
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan olahraga,
+                    kerja sama tim, dan sportivitas.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 SPARTAN
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="spartan"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Spartan"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Spartan
+                </h3>
+
+                <p>
+                    Kegiatan pengembangan kemampuan
+                    dan kebugaran siswa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 REMAS
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="remas"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo REMAS"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Keagamaan
+                </span>
+
+                <h3>
+                    REMAS
+                </h3>
+
+                <p>
+                    Wadah kegiatan keagamaan dan
+                    pembinaan karakter siswa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 PIKR
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="pikr"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo PIKR"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Konseling Remaja
+                </span>
+
+                <h3>
+                    PIKR
+                </h3>
+
+                <p>
+                    Pengembangan pengetahuan,
+                    keterampilan, dan kepedulian remaja.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 IPSI
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="ipsi"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo IPSI"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    IPSI
+                </h3>
+
+                <p>
+                    Pengembangan kemampuan pencak silat,
+                    disiplin, dan sportivitas.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 FUTSAL
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="futsal"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Futsal"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Futsal
+                </h3>
+
+                <p>
+                    Melatih kemampuan bermain futsal,
+                    strategi, dan kerja sama tim.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 KARAWITAN
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="karawitan"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Karawitan"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Seni & Budaya
+                </span>
+
+                <h3>
+                    Karawitan
+                </h3>
+
+                <p>
+                    Mengenal dan mengembangkan seni
+                    musik tradisional Jawa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 GATEBALL
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="gateball"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Gateball"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Gateball
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan olahraga
+                    dan strategi permainan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 MUSIK
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="musik"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Musik"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Seni
+                </span>
+
+                <h3>
+                    Musik
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan bermusik
+                    dan kreativitas siswa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 PADUS
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="padus"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Padus"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Seni
+                </span>
+
+                <h3>
+                    Padus
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan vokal,
+                    harmoni, dan kerja sama kelompok.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 ECC
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="ecc"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo ECC"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Bahasa
+                </span>
+
+                <h3>
+                    ECC
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan komunikasi
+                    dan bahasa Inggris.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 TARI
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="tari"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Tari"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Seni
+                </span>
+
+                <h3>
+                    Tari
+                </h3>
+
+                <p>
+                    Mengembangkan kreativitas melalui
+                    seni tari tradisional dan modern.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 DANCE
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="dance"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Dance"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Dance
+                </h3>
+
+                <p>
+                    Wadah pengembangan kreativitas,
+                    koreografi, dan seni pertunjukan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 NIHONGO
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="nihongo"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Nihongo"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Bahasa
+                </span>
+
+                <h3>
+                    Nihongo
+                </h3>
+
+                <p>
+                    Pembelajaran dan pengembangan
+                    kemampuan bahasa Jepang.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 ESPORT
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="esport"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Esport"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Esport
+                </h3>
+
+                <p>
+                    Mengembangkan strategi,
+                    koordinasi, dan sportivitas melalui
+                    kompetisi digital.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 KWU
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="kwu"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo KWU"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Usaha Siswa
+                </span>
+
+                <h3>
+                    KWU
+                </h3>
+
+                <p>
+                    Mengembangkan jiwa kewirausahaan
+                    dan kreativitas bisnis siswa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 KOPSIS
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="kopsis"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo KOPSIS"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Usaha Siswa
+                </span>
+
+                <h3>
+                    KOPSIS
+                </h3>
+
+                <p>
+                    Mengenalkan pengelolaan koperasi
+                    dan kegiatan ekonomi siswa.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 BANJARI
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="banjari"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Banjari"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Keagamaan
+                </span>
+
+                <h3>
+                    Banjari
+                </h3>
+
+                <p>
+                    Mengembangkan seni musik rebana
+                    dan kegiatan keagamaan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 TAHFIDZ
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="tahfidz"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Tahfidz"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Keagamaan
+                </span>
+
+                <h3>
+                    Tahfidz
+                </h3>
+
+                <p>
+                    Wadah pembinaan dan pengembangan
+                    kemampuan menghafal Al-Qur'an.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 MTQ
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="mtq"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo MTQ"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Keagamaan
+                </span>
+
+                <h3>
+                    MTQ
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan membaca
+                    dan memahami Al-Qur'an.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 VOLLY
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="volly"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Volly"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Olahraga
+                </span>
+
+                <h3>
+                    Volly
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan bola voli,
+                    strategi, dan kerja sama tim.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 SPEKTA
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="spekta"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Spekta"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Lingkungan
+                </span>
+
+                <h3>
+                    Spekta
+                </h3>
+
+                <p>
+                    Kegiatan pengembangan kepedulian
+                    terhadap lingkungan sekolah.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 MULTIMEDIA
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="multimedia"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Multimedia"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Seni
+                </span>
+
+                <h3>
+                    Multimedia
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan desain,
+                    fotografi, video, dan media digital.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 TEATER
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="teater"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Teater"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Pertunjukkan
+                </span>
+
+                <h3>
+                    Teater
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan seni peran,
+                    ekspresi, dan pertunjukan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 PMR
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="pmr"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo PMR"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Kesehatan
+                </span>
+
+                <h3>
+                    PMR
+                </h3>
+
+                <p>
+                    Mengenalkan kepedulian kesehatan,
+                    pertolongan pertama, dan kemanusiaan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 AMBALAN
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="ambalan"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Ambalan"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Kepramukaan
+                </span>
+
+                <h3>
+                    Ambalan
+                </h3>
+
+                <p>
+                    Mengembangkan kepemimpinan,
+                    kemandirian, dan keterampilan pramuka.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 PRAMUKA WAJIB
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="pramuka"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo Pramuka"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Kepemimpinan
+                </span>
+
+                <h3>
+                    Pramuka (Wajib)
+                </h3>
+
+                <p>
+                    Pembentukan karakter, kedisiplinan,
+                    kemandirian, dan kepemimpinan.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+            <!-- =================================
+                 KTI
+            ================================== -->
+
+            <article
+                class="ekstra-card"
+                data-ekstra="kti"
+            >
+
+                <div class="ekstra-logo">
+
+                    <img
+                        src="assets-image/plisiholder.png"
+                        alt="Logo KTI"
+                    >
+
+                </div>
+
+                <span class="ekstra-category">
+                    Terapan
+                </span>
+
+                <h3>
+                    KTI
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan penelitian,
+                    penulisan, dan berpikir ilmiah.
+                </p>
+
+                <a
+                    href="detail.html"
+                    class="detail-button"
+                >
+                    Lihat Detail →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        © 2026 SMAN 1 Pacet —
+        Portal Ekstrakurikuler
+
+    </footer>
+
+
+    <!-- ========================================
+         DETAIL ROUTING SYSTEM
+    ========================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const cards =
+                    document.querySelectorAll(
+                        "[data-ekstra]"
+                    );
+
+
+                cards.forEach(
+                    function (card) {
+
+                        const ekstraId =
+                            card.dataset.ekstra;
+
+                        const detailButton =
+                            card.querySelector(
+                                ".detail-button"
+                            );
+
+
+                        if (
+                            !ekstraId ||
+                            !detailButton
+                        ) {
+                            return;
+                        }
+
+
+                        detailButton.href =
+                            "detail.html?ekstra=" +
+                            encodeURIComponent(
+                                ekstraId
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
